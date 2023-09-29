@@ -8,5 +8,5 @@ skew_features = features[numeric_cols].apply(lambda x: skew(x)).sort_values(asce
 high_skew = skew_features[skew_features > 0.75]
 skew_index = high_skew.index
 
-# log1p関数で正規分布に近い形に変換
+# log1p関数で正規分布に近い形に変換（底をeとするa+1の対数に変換）
 df_train[skew_index] = np.log1p(df_train[skew_index])
